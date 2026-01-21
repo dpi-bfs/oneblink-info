@@ -1,0 +1,3 @@
+Some information about coding against the OneBlink SDK by the Department of Primary Industries and Regional Development >  Biosecurity & Food Safety.
+
+Initial author: John Bentley.
