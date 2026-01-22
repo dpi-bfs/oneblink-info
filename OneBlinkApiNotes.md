@@ -299,6 +299,10 @@ SmartGit:
 
 * Update packages
 
+      ps> npm install
+
+      // or
+
       ps> npm update
 
 * Verify updates
