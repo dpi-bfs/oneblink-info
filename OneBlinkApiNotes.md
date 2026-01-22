@@ -85,8 +85,8 @@
 * (As required) Downgrade node.
 
       ps> winget uninstall Node.js
-      Check the versions supported by Node.js https://nodejs.org/download/release/
-      ps> winget install OpenJS.NodeJS.LTS --version 18.20.7
+      ps> winget search OpenJS.NodeJS # Check the versions supported by winget
+      ps> winget install OpenJS.NodeJS.18 # From the OpenJS.NodeJS.* possibilities returned, choose your desired version
 
 * (As required) Upgrade node npm to the latest.
 
@@ -290,6 +290,11 @@ SmartGit:
 ### Refactor copied code
 
 * If you've copied code from a another project refactor it, pruning as necessary, for the current project.
+
+## Prevent processes that interfere with things
+
+* Turn off Checkpoint harmony (A network link filter)
+* (If the project lives under a OneDrive folder), pause OneDrive. See below "Troubleshooting" > "npx tsc --watch hangs".
 
 ## Update code
 
@@ -667,6 +672,38 @@ For a convenient list of elements use "OneBlink Elements of Interest" https://gi
 
 
 ## Troubleshooting
+
+### 
+
+### npx tsc --watch hangs
+
+Problem: 
+  `npm run watch` (so ultimately `npx tsc --watch`) starts Typscript transpilaton. But Automatic File downloads is occurring  "Node.js JavaScript Runtime is downloading from John - DPIE"; and the typescript watch never completes.
+
+  E.g. with
+
+  > [5:52:57 pm] Found 6 errors. Watching for file changes.
+
+  or, better ...
+
+  > [5:56:11 pm] Found 0 errors. Watching for file changes.
+
+Solution:
+  If your project lives under OneDrive, pause OneDrive
+
+### npx tsc --watch produces unrecoverable errors
+
+Problem
+
+  npx tsc --watch produces unrecoverable errors
+
+Solution:
+
+  * Downgrade node and/or npm; or
+  * "node_modules" may be corrupt; fix it:
+    - Delete "node_modules". 
+    - Delete "package-lock.json"
+    - `npm install`
 
 ### Authentication problems when deploying code
 
